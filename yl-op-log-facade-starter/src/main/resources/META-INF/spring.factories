@@ -1,0 +1,4 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.hyl.op.log.config.OpLogGlobalAutoConfiguration,\
+com.hyl.op.log.config.FeignRequestInterceptorAutoConfiguration

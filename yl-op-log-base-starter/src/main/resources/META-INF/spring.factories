@@ -1,0 +1,6 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.hyl.op.log.config.MyBatisOpLogAutoConfiguration,\
+com.hyl.op.log.config.OpLogAutoConfiguration,\
+com.hyl.op.log.config.DatasourceAutoConfiguration,\
+com.hyl.op.log.config.FeignRequestInterceptorAutoConfiguration

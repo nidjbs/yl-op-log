@@ -1,0 +1,31 @@
+op:
+  log:
+    datasource:
+      enable: true # 是否开启日志记录于独立数据库，下面的配置与spring-datasource含义一致，默认不开启
+      username: root
+      password: 123456
+      url: jdbc:mysql://localhost:3306/op_log_data?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    logTables: [sy_user] #需要记录的详细变更的数据表
+    logInTx: true #是否将记录日志与业务操作放进一个事务中，如果当前没有事务，会自动开启事务，默认开启，但需保证你的数据库是支持事务的
+    manualTxTimeOut: 6000 #自动开启的手动事务超时时间，logInTx为true时有效
+    softDeleteColumn: is_active #逻辑删除字段（暂时只支持全局配置）
+    softDeleteColumnDeleteValue : false #逻辑删除字段删除时的值（暂时只支持全局配置）
+spring:
+  application:
+    name: service-A
+  datasource:
+    url: jdbc:mysql://localhost:3306/service_a?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  http:
+    encoding:
+      charset: UTF-8
+server:
+  port: 8002
+
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
